@@ -30,3 +30,6 @@ Vantagens: ✅ Memória de longo prazo
 Desvantagens: ❌ Requer muitos dados
 ❌ Computacionalmente custoso
 ❌ Hiperparâmetros sensíveis
+
+Empresas:
+Mapa de calor, mostra forte correlação entre elas
