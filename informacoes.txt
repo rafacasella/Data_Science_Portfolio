@@ -1,0 +1,3 @@
+Utilização do algoritimo LSTM (Long Short-term Memory)
+Prever preço de ações (bluechips) Emrpesas petroleiras
+Futuramente utilizar uma analise d sentimento das noticias relacionadas ao petroleo
