@@ -37,9 +37,9 @@ Durante a fase de desenvolvimento, identificou-se que variações de ambiente no
 A extração focada na resposta da API (`response.json()`) provou ser **82% mais rápida** do que a varredura tradicional de elementos visuais do DOM (`page.query_selector_all`), além de tornar o software imune a qualquer atualização de design ou interface da Truth Social.
 
 ---
-## 📈 Resultado:
+## 📈 Resultado
 
-### Monitoramento Constante:
+### Monitoramento Constante
 O sistema monitora postagens do presidente norte-americano, referente ao conflito vigente na data deste repositório, que visam o impacto nos preços de algumas commodities em especial o petróleo.
 Essas postagens tem a possibilidade de impactar fortemente o preço da commoditie e por consequência dos ativos financeiro norte-americanos, bem como do restante do mundo (em particular o brasil, devido a sua forte relação entre commodities X economia).
 
