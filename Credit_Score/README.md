@@ -1,41 +1,41 @@
-# Previsão de Score de Crédito 💳
+# Credit Score Prediction 💳
 
-Este projeto desenvolve um modelo preditivo baseado em machine learning para calcular o score de crédito de clientes com base em seu perfil socioeconômico e patrimonial. O objetivo principal é automatizar a análise de risco financeiro para apoiar a tomada de decisões de concessão de crédito. Este repositório integra meu portfólio de Ciência de Dados.
+This project develops a predictive machine learning model to calculate customer credit scores based on their socioeconomic and asset profiles. The primary goal is to automate financial risk analysis to support credit approval decision-making. This repository is part of my Data Science portfolio.
 
-## 🛠️ Tecnologias e Ferramentas
+## 🛠️ Tech Stack & Tools
 
-*   **Linguagem:** Python
-*   **Manipulação de Dados:** Pandas, NumPy
-*   **Visualização de Dados:** Seaborn, Matplotlib
+*   **Language:** Python
+*   **Data Manipulation:** Pandas, NumPy
+*   **Data Visualization:** Seaborn, Matplotlib
 *   **Machine Learning:** Scikit-Learn
 
-## 📊 Estrutura dos Dados
+## 📊 Data Structure
 
-O conjunto de dados possui **10.474 registros** sem valores nulos, contendo as seguintes variáveis:
+The dataset contains **10,474 records** with no missing values, featuring the following variables:
 
-*   `UF`: Estado de residência do cliente.
-*   `IDADE` / `FAIXA_ETARIA`: Idade e agrupamento etário do cliente.
-*   `ESCOLARIDADE` / `ESTADO_CIVIL`: Informações sociodemográficas.
-*   `QT_FILHOS`: Quantidade de dependentes.
-*   `CASA_PROPRIA` / `QT_IMOVEIS` / `VL_IMOVEIS`: Dados de patrimônio imobiliário.
-*   `OUTRA_RENDA` / `OUTRA_RENDA_VALOR`: Existência e valor de fontes secundárias de renda.
-*   `TEMPO_ULTIMO_EMPREGO_MESES` / `TRABALHANDO_ATUALMENTE`: Histórico de estabilidade profissional.
-*   `ULTIMO_SALARIO`: Renda principal do cliente.
-*   `QT_CARROS` / `VALOR_TABELA_CARROS`: Dados de patrimônio automotivo.
-*   `SCORE` (**Variável Alvo**): Pontuação numérica do risco de crédito.
+*   `UF`: Customer's state of residence.
+*   `IDADE` / `FAIXA_ETARIA`: Customer's age and age group.
+*   `ESCOLARIDADE` / `ESTADO_CIVIL`: Sociodemographic information.
+*   `QT_FILHOS`: Number of dependents.
+*   `CASA_PROPRIA` / `QT_IMOVEIS` / `VL_IMOVEIS`: Real estate asset data.
+*   `OUTRA_RENDA` / `OUTRA_RENDA_VALOR`: Existence and value of secondary income sources.
+*   `TEMPO_ULTIMO_EMPREGO_MESES` / `TRABALHANDO_ATUALMENTE`: Professional stability history.
+*   `ULTIMO_SALARIO`: Customer's primary income.
+*   `QT_CARROS` / `VALOR_TABELA_CARROS`: Automotive asset data.
+*   `SCORE` (**Target Variable**): Numerical credit risk score.
 
-## 📈 Metodologia e Performance
+## 📈 Methodology & Performance
 
-O projeto seguiu o fluxo padrão de desenvolvimento em Ciência de Dados:
+The project followed the standard Data Science development workflow:
 
-1.  **Análise Exploratória (EDA):** Análise de distribuição do score e tratamento de outliers.
-2.  **Pré-processamento:** Validação dos tipos de dados e estruturação das variáveis numéricas e categóricas já codificadas em formato inteiro e ponto flutuante.
-3.  **Modelagem:** Aplicação do algoritmo de **Regressão Linear** para a predição da pontuação contínua do score.
+1.  **Exploratory Data Analysis (EDA):** Score distribution analysis and outlier treatment.
+2.  **Preprocessing:** Data type validation and structuring of numerical and categorical variables already encoded into integer and float formats.
+3.  **Modeling:** Application of the **Linear Regression** algorithm for continuous credit score prediction.
 
-### Resultado do Modelo
+### Model Performance
 
-O modelo apresentou uma sólida capacidade preditiva para o cenário de negócios:
+The model demonstrated a solid predictive capability for the business scenario:
 
-*   **Coeficiente de Determinação (R² Score):** **79,5%**
+*   **Coefficient of Determination (R² Score):** **79.5%**
 
-Este resultado indica que 79,5% da variabilidade do score de crédito é explicada pelas características demográficas, profissionais e patrimoniais integradas no modelo.
+This result indicates that 79.5% of the credit score variability is explained by the demographic, professional, and asset features integrated into the model.
