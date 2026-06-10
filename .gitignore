@@ -1,0 +1,16 @@
+# Ignorar o ambiente virtual inteiro
+.venv/
+.venv313/
+
+# Ignorar o arquivo de senhas
+.env
+
+# Bloquear pastas do sistema e compilação
+.idea/
+build/
+dist/
+*.spec
+
+# Bloquear planilhas de dados soltas na raiz
+*.xlsx
+*.csv
