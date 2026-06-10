@@ -3,40 +3,9 @@ import asyncio
 import re
 import sys
 import os
-import subprocess
 from datetime import datetime
 from urllib.parse import urljoin
 from playwright.async_api import async_playwright
-
-# Força o Playwright a salvar e ler os navegadores na pasta padrão do contêiner do Streamlit
-os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/home/adminuser/.cache/ms-playwright"
-
-# Instalação automatizada e limpa do Chromium na nuvem (sem travar versão em texto)
-try:
-    import playwright
-    # Executa a instalação de forma direta. O próprio Playwright gerencia se já existe ou não.
-    print("📥 Sincronizando binários do Chromium com o ambiente de nuvem...")
-    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
-    print("✅ Navegadores prontos para execução!")
-except Exception as e:
-    print(f"Aviso de infraestrutura de inicialização: {e}")
-
-
-# Configuração de Página e Estilo do Painel Geopolítico
-st.set_page_config(page_title="Geopolitical Intelligence Monitor", layout="wide")
-
-st.markdown("""
-    <style>
-        .main {background-color: #0b0f19; color: #ffffff;}
-        div[data-testid="stMetricValue"] {color: #00f2fe; font-family: monospace;}
-        .alert-card {background: rgba(255, 75, 75, 0.1); border-left: 5px solid #ff4b4b; padding: 15px; border-radius: 4px; margin-bottom: 15px;}
-        .post-card {background: rgba(0, 242, 254, 0.05); border-left: 5px solid #00f2fe; padding: 15px; border-radius: 4px; margin-bottom: 15px;}
-        h1, h2, h3 {color: #ffffff; font-family: 'Helvetica Neue', sans-serif;}
-    </style>
-""", unsafe_allow_html=True)
-
-st.title("📢 Web Scraping Geopolitical Monitor")
-st.subheader("OSINT Monitor em Tempo Real - Truth Social Extraction Pipeline")
 
 # =============================================================================
 # CONTROLE DE ESTADO DA SESSÃO (Evita perda de dados ao atualizar a interface)
