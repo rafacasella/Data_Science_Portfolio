@@ -1,12 +1,28 @@
 import streamlit as st
 import asyncio
 import re
+import sys
 import os
 import subprocess
 from datetime import datetime
 from urllib.parse import urljoin
 from playwright.async_api import async_playwright
 
+# Força o Playwright a salvar e ler os navegadores na pasta padrão do contêiner do Streamlit
+os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/home/adminuser/.cache/ms-playwright"
+
+# Comando de checagem física de infraestrutura
+caminho_navegador = "/home/adminuser/.cache/ms-playwright/chromium_headless_shell-1122/chrome-headless-shell-linux64/chrome-headless-shell"
+
+if not os.path.exists(caminho_navegador):
+    try:
+        print("📥 Configurando navegadores nativos do ambiente de nuvem...")
+        # Força o download específico do binário leve do Chromium Headless exigido pelo servidor
+        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+        print("✅ Navegadores instalados com sucesso!")
+    except Exception as e:
+        print(f"Aviso de infraestrutura: {e}")
+        
 # Garante a instalação do binário leve do Chromium na nuvem
 try:
     import playwright
