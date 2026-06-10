@@ -1,6 +1,7 @@
 import streamlit as pd_st
 import pandas as pd
 import plotly.graph_objects as go
+import os
 
 # Configuração da página e layout do Dashboard
 pd_st.set_page_config(page_title="IA Quant Trading", layout="wide")
@@ -21,10 +22,14 @@ pd_st.subheader("Simulação de Performance e Sinais de Direção do Mercado")
 @pd_st.cache_data
 def carregar_dados_consolidados():
     """
-    Carrega a planilha final com os resultados calculados pelo script de backtest.
+    Carrega a planilha final mapeando o caminho absoluto do diretório dinamicamente.
     """
+    # Descobre o caminho da pasta atual onde o app_streamlit.py está localizado
+    diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    caminho_planilha = os.path.join(diretorio_atual, "resultado_final_backtest.csv")
+
     try:
-        df = pd.read_csv("resultado_final_backtest.csv", index_col=0, parse_dates=True)
+        df = pd.read_csv(caminho_planilha, index_col=0, parse_dates=True)
         return df
     except FileNotFoundError:
         return None
