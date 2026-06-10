@@ -91,7 +91,6 @@ if df_resultado is not None:
     # Customização visual do gráfico para o tema escuro do portfólio
     fig.update_layout(
         template="plotly_dark",
-        backgroundColor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=20, r=20, t=20, b=20),
