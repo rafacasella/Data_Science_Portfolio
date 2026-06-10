@@ -121,7 +121,7 @@ class TruthMonitorApp(ctk.CTk):
 
         async with async_playwright() as p:
             browser = await p.chromium.launch(
-                headless=False,
+                headless=True,
                 args=["--disable-blink-features=AutomationControlled"]
             )
             context = await browser.new_context(
