@@ -7,11 +7,13 @@ from datetime import datetime
 from urllib.parse import urljoin
 from playwright.async_api import async_playwright
 
-# Código de inicialização para garantir os navegadores do Playwright na nuvem
+# Garante a instalação do binário leve do Chromium na nuvem
 try:
-    # Tenta verificar se o Playwright está pronto. Se falhar, força a instalação dos binários.
     import playwright
-except ImportError:
+    # Se o binário não estiver no caminho padrão, força o download estrito apenas do chromium
+    if not os.path.exists(os.path.expanduser("~/.cache/ms-playwright")):
+        subprocess.run(["playwright", "install", "chromium"], check=True)
+except Exception as e:
     pass
 
 # Esse comando roda apenas uma vez quando o servidor liga, baixando o Chromium Headless de forma silenciosa
