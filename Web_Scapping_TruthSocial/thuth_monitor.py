@@ -11,33 +11,16 @@ from playwright.async_api import async_playwright
 # Força o Playwright a salvar e ler os navegadores na pasta padrão do contêiner do Streamlit
 os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/home/adminuser/.cache/ms-playwright"
 
-# Comando de checagem física de infraestrutura
-caminho_navegador = "/home/adminuser/.cache/ms-playwright/chromium_headless_shell-1122/chrome-headless-shell-linux64/chrome-headless-shell"
-
-if not os.path.exists(caminho_navegador):
-    try:
-        print("📥 Configurando navegadores nativos do ambiente de nuvem...")
-        # Força o download específico do binário leve do Chromium Headless exigido pelo servidor
-        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
-        print("✅ Navegadores instalados com sucesso!")
-    except Exception as e:
-        print(f"Aviso de infraestrutura: {e}")
-
-# Garante a instalação do binário leve do Chromium na nuvem
+# Instalação automatizada e limpa do Chromium na nuvem (sem travar versão em texto)
 try:
     import playwright
-    # Se o binário não estiver no caminho padrão, força o download estrito apenas do chromium
-    if not os.path.exists(os.path.expanduser("~/.cache/ms-playwright")):
-        subprocess.run(["playwright", "install", "chromium"], check=True)
+    # Executa a instalação de forma direta. O próprio Playwright gerencia se já existe ou não.
+    print("📥 Sincronizando binários do Chromium com o ambiente de nuvem...")
+    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+    print("✅ Navegadores prontos para execução!")
 except Exception as e:
-    pass
+    print(f"Aviso de infraestrutura de inicialização: {e}")
 
-# Esse comando roda apenas uma vez quando o servidor liga, baixando o Chromium Headless de forma silenciosa
-if not os.environ.get("PLAYWRIGHT_BROWSERS_PATH"):
-    try:
-        subprocess.run(["playwright", "install", "chromium"], check=True)
-    except Exception as e:
-        print(f"Nota: Comando de instalação do navegador tratado pelo container: {e}")
 
 # Configuração de Página e Estilo do Painel Geopolítico
 st.set_page_config(page_title="Geopolitical Intelligence Monitor", layout="wide")
